@@ -23,7 +23,7 @@ jobs:
           version: 8.6.1
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Install, build, and upload your site
         uses: withastro/action@v2
