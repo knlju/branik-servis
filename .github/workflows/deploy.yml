@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -30,19 +30,28 @@ jobs:
 
       - name: Create redirect HTML files
         run: |
-          mkdir -p public/old-url
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/new-url/" /></head><body><p>If you are not redirected, <a href="/new-url/">click here</a>.</p></body></html>' > public/old-url/index.html
+          mkdir -p dist/old-url
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/new-url/" /></head><body><p>If you are not redirected, <a href="/new-url/">click here</a>.</p></body></html>' > dist/old-url/index.html
 
-      - name: Prepare for GitHub Pages
-        run: mv dist/* public/
+      - name: Upload build artifacts
+        uses: actions/upload-pages-artifact@v2
+        with:
+          name: github-pages
+          path: dist
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v4
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
