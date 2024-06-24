@@ -1,0 +1,9 @@
+---
+type Props = {
+    svg: string
+}
+
+const { svg } = Astro.props;
+---
+
+<Fragment set:html={svg} />

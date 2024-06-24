@@ -1,0 +1,44 @@
+---
+import Location from "./Location.astro"
+import Tools from "./Icons/Tools.astro"
+
+const services = [
+	"Branik servis",
+	"Popravka branika automobila",
+	"Servis branika",
+	"Farbanje branika vozila",
+	"Reparacija auto branika",
+	"Auto limarija",
+	"Auto lakiranje",
+	"Poliranje automobila",
+	"Farbanje spoljašnjosti i unutrašnjosti vozila",
+	"Popravka limarije",
+	"Varenje plastike automobila",
+]
+---
+
+<div
+	class="flex flex-col lg:flex-row lg:items-center lg:max-w-screen-lg md:max-w-screen-md mx-auto px-1 mt-10 py-2 mb-3 gap-2 md:gap-0"
+>
+	<div class="flex-1">
+		<h2 class="text-2xl font-semibold text-gray-900 mb-6">Usluge koje nudimo:</h2>
+		<ul class="space-y-1">
+			{
+				services.map((service) => (
+					<li>
+						<div class="flex items-center pt-1 gap-4">
+							<Tools />
+							<span class="text-lg font-medium text-gray-900">
+								{service}
+							</span>
+						</div>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+	<div class="flex-1">
+		<Location />
+	</div>
+</div>
+<hr />

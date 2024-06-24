@@ -1,0 +1,44 @@
+---
+import Call from "../Icons/Call.astro"
+import SMS from "../Icons/SMS.astro"
+import Viber from "../Icons/Viber.astro"
+import Whatsapp from "../Icons/Whatsapp.astro"
+---
+
+<div class="mx-auto max-w-lg text-center text-lg mt-6 mb-2" id="apps">Kontaktirajte nas putem jedne od sledećih opcija:</div>
+<div class="flex justify-center gap-6 mb-8">
+	<button>
+		<a
+			href="https://api.whatsapp.com/send?phone=381641208016&text=I'm%20interested%20in%20your%20services"
+			target="_blank"
+			class="flex flex-col items-center"
+		>
+			<Whatsapp />WhatsApp
+		</a>
+	</button>
+	
+	<div>
+		<button>
+			<a href="viber://chat/?number=%2B381641208016">
+				<Viber />Viber
+			</a>
+		</button>
+	</div>
+	
+	<div>
+		<button>
+			<a href="sms:+381641208016?body='Zainteresovan sam za vase usluge'">
+				<SMS />SMS
+			</a>
+		</button>
+	</div>
+	
+	<div>
+		<button>
+			<a href="tel:+381641208016">
+				<Call />Poziv
+			</a>
+		</button>
+	</div>
+	
+</div>
