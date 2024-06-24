@@ -7,18 +7,26 @@ import Contact from '../components/Contact/index.astro';
 import Footer from '../components/Footer.astro';
 import Gallery from '../components/Gallery.astro';
 import Text from '../components/Text.astro';
+import Follow from '../components/Follow.astro';
+import Info from '../components/Info.astro';
 ---
 
-<Layout title="Branik servis">
+<Layout title="Auto servis Kastratović - mehanika, elektrika, dijagnostika">
 	<Header client:load />
 	<Banner />
 	<Text 
-		title="Branik Servis - Vaš Pouzdan Partner za Popravku i Farbanje Automobila" 
-		text='Naš branik servis specijalizovan je za popravke, servise i farbanje auto branika. Bez obzira na tip, stepen ili razlog oštećenja branika, naša usluga će biti kvalitetna i efikasna. Iako najviše radimo sa branicima, auto limarija, farbanje i lakiranje automobila nam nije strana oblast rada, naprotiv. Kroz naš dugogodišnji rad sa svim tipovima i markama automobila, stekli smo dragoceno iskustvo koje nam svakodnevno pomaže u obavljanju posla.' 
+		title="Auto servis Kastratović - Vaš Pouzdan Partner za Popravku i Farbanje Automobila" 
+		text='Naš auto servis specijalizovan je za popravke, servise i farbanje auto branika. Bez obzira na tip, stepen ili razlog oštećenja branika, naša usluga će biti kvalitetna i efikasna. Iako najviše radimo sa branicima, auto limarija, farbanje i lakiranje automobila nam nije strana oblast rada, naprotiv. Kroz naš dugogodišnji rad sa svim tipovima i markama automobila, stekli smo dragoceno iskustvo koje nam svakodnevno pomaže u obavljanju posla.' 
 		id="about"
+	/>
+	<Info showMap={false} />
+	<Text 
+		text='Naš servis specijalizovan je za sve vrste popravki i održavanja automobila. Bez obzira na problem, naš tim stručnjaka će vam pružiti visokokvalitetnu uslugu i osigurati da vaše vozilo bude u najboljem stanju.' 
 	/>
 	<Services />
 	<Gallery />
 	<Contact />
+	<Info showMap={true} />
+	<Follow />
 	<Footer />
 </Layout>
