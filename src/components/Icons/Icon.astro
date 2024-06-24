@@ -3,7 +3,7 @@ type Props = {
     svg: string
 }
 
-const { svg } = Astro.props;
+const { svg } = Astro.props as Props;
 ---
 
 <Fragment set:html={svg} />
