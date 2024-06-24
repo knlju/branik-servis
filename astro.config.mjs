@@ -15,4 +15,5 @@ export default defineConfig({
   integrations: [react(), tailwind()],
   site: SITE,
   base: BASE,
+  output: "static"
 });
