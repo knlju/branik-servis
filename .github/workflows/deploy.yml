@@ -14,6 +14,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Set up pnpm
         uses: pnpm/action-setup@v3
         with:
@@ -26,7 +29,7 @@ jobs:
         uses: withastro/action@v2
         with:
           package-manager: pnpm@latest
-          
+
       - name: Generate Jekyll redirects
         run: |
           gem install jekyll jekyll-redirect-from
@@ -47,6 +50,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
