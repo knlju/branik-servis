@@ -6,25 +6,32 @@ type Props = {
 }
 
 const { showMap } = Astro.props
+
+const pageData = {
+	address: "Južni bulevar 178a, Beograd 11000",
+	phoneNumber: '0611804293',
+	email: 'ivankastratovic90@gmail.com'
+}
+
 ---
 
-<div class="max-w-screen-lg md:flex mx-auto p-2 items-start justify-start">
+<div class="max-w-screen-lg md:flex mx-auto p-2 items-start justify-start overflow-auto">
 	<div
 		class={"grid grid-cols-2 grid-rows-3 h-auto grid-flow-dense" + (showMap
 			? " flex-1"
 			: "")}
 	>
 		<div>Adresa:</div>
-		<div class="font-bold">Grčića Milenka 37, Beograd 11000</div>
+		<div class="font-bold">{pageData.address}</div>
 
 		<div>Broj telefona:</div>
 		<div class="font-bold">
-			<a href="tel:0611804293">0611804293</a>
+			<a href={`tel:${pageData.phoneNumber}`}>{pageData.phoneNumber}</a>
 		</div>
 
 		<div>Email:</div>
 		<div class="font-bold">
-			<a href="mailto:ivankastratovic90@gmail.com">ivankastratovic90@gmail.com</a>
+			<a href={`mailto:${pageData.email}`}>{pageData.email}</a>
 		</div>
 	</div>
 
